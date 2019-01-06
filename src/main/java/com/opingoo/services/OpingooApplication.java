@@ -14,6 +14,9 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.session.JDBCSessionIdManager;
 import org.eclipse.jetty.server.session.JDBCSessionManager;
 import org.eclipse.jetty.server.session.SessionHandler;
+import org.glassfish.jersey.filter.LoggingFilter;
+
+import java.util.logging.Logger;
 
 /**
  * @Author SmrutiRanjan(c99.smruti@gmail.com)
@@ -53,6 +56,12 @@ public class OpingooApplication extends Application<OpingooApplicationConfigurat
     public void run(OpingooApplicationConfiguration configuration, Environment environment) throws Exception{
         logger.logInfo(CLASSNAME,"Registering REST resources");
 
+
+        if(BaseUtils.isResponseLoggingEnabled()) {
+            // Enable the request / response login
+            environment.jersey().register(new LoggingFilter(Logger.getLogger("InboundRequestResponse"), true));
+            environment.jersey().register(new LoggingFilter(Logger.getLogger("OutboundRequestResponse"), true));
+        }
 
         environment.jersey().register(new UserWebServices());
 

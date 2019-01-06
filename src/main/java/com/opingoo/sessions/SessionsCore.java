@@ -18,6 +18,7 @@ public class SessionsCore {
     private static AppLogger logger = AppLogger.getLogger();
 
 
+
     public static String getUserIdFromSession(HttpSession httpSession) {
         UserSessionObject userSessionObject = getUserSessionObject(httpSession);
         if (userSessionObject != null) {
