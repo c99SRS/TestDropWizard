@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.c3p0.min_size">20</property>
+        <property name="hibernate.c3p0.max_size">80</property>
+        <property name="hibernate.c3p0.numHelperThreads">20</property>
+        <property name="hibernate.c3p0.max_statements">60</property>
+        <property name="hibernate.c3p0.acquire_increment">5</property>
+        <property name="hibernate.c3p0.idle_test_period">60</property>
+        <property name="hibernate.c3p0.timeout">120</property>
+
+        <property name="hibernate.c3p0.debugUnreturnedConnectionStackTraces">true</property>
+        <property name="hibernate.c3p0.unreturnedConnectionTimeout">60</property>
+        <property name="hibernate.c3p0.checkoutTimeout">30000</property>
+
+        <!-- <property name ="show_sql">true</property>-->
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">true</property>
+        <property name="hbm2ddl.auto">update</property >     <!-- create | update | validate | create-drop -->
+
+
+
+        <property name="hibernate.flushMode">ALWAYS</property>
+        <property name="hibernate.connection.autocommit">true</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/opingooDB</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">opingoo_123</property>
+
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+
+
+
+        <mapping class="com.opingoo.BO.User"/>
+
+
+    </session-factory>
+</hibernate-configuration>
